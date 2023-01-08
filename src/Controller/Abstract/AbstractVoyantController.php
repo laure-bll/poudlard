@@ -12,6 +12,6 @@ abstract class AbstractVoyantController extends AbstractController {
    */
   public function voirLesFantomes(string $fantome): string
   {
-    return print_r("{$this->getPrenom()} a vu le fantôme de $fantome." . PHP_EOL);
+    return print_r("{$this->getNom()} a vu le fantôme de $fantome." . PHP_EOL);
   }
 }

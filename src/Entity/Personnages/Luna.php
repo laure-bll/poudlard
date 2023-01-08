@@ -5,4 +5,9 @@ use App\Entity\Abstract\AbstractPersonnage;
 
 class Luna extends AbstractPersonnage
 {
+  public function __construct(string $nom)
+  {
+    parent::__construct($nom);
+    $this->nom = $nom;
+  }
 }

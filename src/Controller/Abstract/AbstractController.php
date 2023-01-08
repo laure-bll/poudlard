@@ -6,6 +6,11 @@ use App\Interface\AbstractControllerInterface;
 
 abstract class AbstractController extends AbstractPersonnage implements AbstractControllerInterface
 {
+  public function __construct(AbstractPersonnage $personnage)
+  {
+    parent::__construct($personnage->nom);
+  }
+
   /** 
    * @param string $nomDuSort
    * @param AbstractPersonnage
@@ -14,7 +19,7 @@ abstract class AbstractController extends AbstractPersonnage implements Abstract
    */
   public function lancerUnSort(string $nomDuSort, AbstractPersonnage $personnage): string
   {
-    return print_r("{$this->getPrenom()} a lancé le sort {$nomDuSort} à {$personnage->getPrenom()}." . PHP_EOL);
+    return print_r("{$this->getNom()} a lancé le sort {$nomDuSort} à {$personnage->getNom()}." . PHP_EOL);
   }
 
   /** 
@@ -22,6 +27,6 @@ abstract class AbstractController extends AbstractPersonnage implements Abstract
    */
   public function volerSurUnBalais(): string
   {
-    return print_r("{$this->getPrenom()} vole sur son balais." . PHP_EOL);
+    return print_r("{$this->getNom()} vole sur son balais." . PHP_EOL);
   }
 }

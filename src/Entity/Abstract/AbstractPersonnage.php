@@ -5,19 +5,13 @@ use App\Entity\Abstract\AbstractMaison;
 
 abstract class AbstractPersonnage
 {
-    protected string $prenom;
     protected string $nom;
-    protected AbstractMaison $maison;
+    protected ?AbstractMaison $maison;
 
-    public function setPrenom(string $prenom): self
+    public function __construct(string $nom)
     {
-      $this->prenom = $prenom;
-      return $this;
-    }
-
-    public function getPrenom(): string
-    {
-      return $this->prenom;
+      $this->nom = $nom;
+      $this->maison = null;
     }
 
     public function setNom(string $nom): self
@@ -37,7 +31,7 @@ abstract class AbstractPersonnage
       return $this;
     }
 
-    public function getMaison(): AbstractMaison
+    public function getMaison(): ?AbstractMaison
     {
       return $this->maison;
     }
